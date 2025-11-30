@@ -530,79 +530,91 @@
                         </p>
 
                         <div class="row g-3">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="p-3 rounded" style="background: rgba(218,54,51,0.1);">
                                     <h5 class="text-danger mb-1">9회</h5>
                                     <small class="text-secondary">최대 연속 손절</small>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="p-3 rounded" style="background: rgba(218,54,51,0.1);">
-                                    <h5 class="text-danger mb-1">-$15,355</h5>
-                                    <small class="text-secondary">최대 낙폭</small>
+                                    <h5 class="text-danger mb-1">-$12,115</h5>
+                                    <small class="text-secondary">최대 연속손실 금액</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-3 rounded" style="background: rgba(218,54,51,0.1);">
+                                    <h5 class="text-danger mb-1">-$1,146</h5>
+                                    <small class="text-secondary">평균 1회 손절</small>
                                 </div>
                             </div>
                         </div>
 
-                        <h5 class="mt-4 mb-3">연속 손절 분포</h5>
+                        <h5 class="mt-4 mb-3">연속 손절 분포 (23개월간 57회 발생)</h5>
                         <div class="progress mb-2" style="height: 25px;">
-                            <div class="progress-bar bg-success" style="width: 50%;">2~3회: 65%</div>
+                            <div class="progress-bar bg-success" style="width: 61%;">2~3회: 35건 (61%)</div>
                         </div>
                         <div class="progress mb-2" style="height: 25px;">
-                            <div class="progress-bar bg-warning" style="width: 30%;">4~6회: 25%</div>
+                            <div class="progress-bar bg-warning" style="width: 32%;">4~6회: 18건 (32%)</div>
                         </div>
                         <div class="progress" style="height: 25px;">
-                            <div class="progress-bar bg-danger" style="width: 15%;">7회+: 10%</div>
+                            <div class="progress-bar bg-danger" style="width: 7%;">7회+: 4건 (7%)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="risk-card h-100">
-                        <h4 class="mb-4"><i class="fas fa-balance-scale text-warning me-2"></i>레버리지별 예상 성과</h4>
-                        <p class="text-secondary mb-4">
-                            초기 자본 $10,000 기준, 레버리지에 따른 예상 수익과 리스크입니다.
+                        <h4 class="mb-4"><i class="fas fa-balance-scale text-warning me-2"></i>레버리지별 예상 성과 & 리스크</h4>
+                        <p class="text-secondary mb-3">
+                            초기 자본 $10,000 기준 | 최대 연속손실 -$12,115 적용
                         </p>
 
                         <table class="leverage-table">
                             <thead>
                                 <tr>
                                     <th>레버리지</th>
-                                    <th>예상 수익</th>
-                                    <th>최대 낙폭</th>
+                                    <th>23개월 수익</th>
+                                    <th>최대 연속손실</th>
+                                    <th>자본 대비</th>
                                     <th>위험도</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="recommended">
                                     <td><strong>1x</strong></td>
-                                    <td class="positive">+$1,242</td>
-                                    <td>-$153 (1.5%)</td>
+                                    <td class="positive">+$12,420</td>
+                                    <td>-$12,115</td>
+                                    <td>-12.1%</td>
                                     <td><span class="badge bg-success">안전</span></td>
                                 </tr>
                                 <tr class="recommended">
                                     <td><strong>2x</strong></td>
-                                    <td class="positive">+$2,484</td>
-                                    <td>-$307 (3.1%)</td>
+                                    <td class="positive">+$24,840</td>
+                                    <td>-$24,231</td>
+                                    <td>-24.2%</td>
                                     <td><span class="badge bg-success">권장</span></td>
                                 </tr>
                                 <tr class="caution">
                                     <td><strong>3x</strong></td>
-                                    <td class="positive">+$3,726</td>
-                                    <td>-$460 (4.6%)</td>
+                                    <td class="positive">+$37,260</td>
+                                    <td>-$36,346</td>
+                                    <td>-36.3%</td>
                                     <td><span class="badge bg-warning text-dark">주의</span></td>
                                 </tr>
                                 <tr class="danger">
                                     <td><strong>5x</strong></td>
-                                    <td class="positive">+$6,210</td>
-                                    <td>-$767 (7.7%)</td>
+                                    <td class="positive">+$62,100</td>
+                                    <td>-$60,577</td>
+                                    <td>-60.6%</td>
                                     <td><span class="badge bg-danger">고위험</span></td>
                                 </tr>
                                 <tr class="danger">
                                     <td><strong>10x</strong></td>
-                                    <td class="positive">+$12,420</td>
-                                    <td>-$1,535 (15.4%)</td>
-                                    <td><span class="badge bg-danger">초고위험</span></td>
+                                    <td class="positive">+$124,200</td>
+                                    <td class="text-danger">-$121,155</td>
+                                    <td class="text-danger">-121%</td>
+                                    <td><span class="badge bg-danger">청산위험</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -610,7 +622,8 @@
                         <div class="alert alert-warning mt-4 mb-0">
                             <i class="fas fa-lightbulb me-2"></i>
                             <strong>권장 레버리지: 1~2배</strong><br>
-                            <small>안정적인 복리 효과를 위해 보수적인 레버리지를 권장합니다.</small>
+                            <small>최대 9연속 손절(-$12,115) 발생 시에도 자본의 25% 이내 손실로 유지됩니다.<br>
+                            3배 이상은 연속 손절 시 자본 30% 이상 손실 가능성이 있습니다.</small>
                         </div>
                     </div>
                 </div>
