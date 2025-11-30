@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitAutoBot - AI 기반 비트코인 자동매매 시스템</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #f7931a;
+            --secondary-color: #4a90d9;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --success-color: #238636;
+            --danger-color: #da3633;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(13, 17, 23, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1f2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary-color), #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(247, 147, 26, 0.1);
+        }
+
+        /* Performance Section */
+        .performance-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #0a0e14 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .performance-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+        }
+
+        .performance-number {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .positive {
+            color: var(--success-color);
+        }
+
+        .negative {
+            color: var(--danger-color);
+        }
+
+        /* Monthly Table */
+        .monthly-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .monthly-table th,
+        .monthly-table td {
+            padding: 12px 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .monthly-table th {
+            background: rgba(247, 147, 26, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .monthly-table tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* Risk Section */
+        .risk-section {
+            padding: 100px 0;
+            background: var(--dark-bg);
+        }
+
+        .risk-card {
+            background: linear-gradient(135deg, #1a1f2e 0%, var(--card-bg) 100%);
+            border: 1px solid rgba(218, 54, 51, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .leverage-table {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .leverage-table th,
+        .leverage-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .recommended {
+            background: rgba(35, 134, 54, 0.2);
+            border: 1px solid var(--success-color);
+        }
+
+        .caution {
+            background: rgba(247, 147, 26, 0.1);
+        }
+
+        .danger {
+            background: rgba(218, 54, 51, 0.1);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1f2e 0%, var(--dark-bg) 100%);
+            text-align: center;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(90deg, var(--primary-color), #ffd700);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: #000;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(247, 147, 26, 0.3);
+            color: #000;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0e14;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .disclaimer {
+            background: rgba(218, 54, 51, 0.1);
+            border: 1px solid rgba(218, 54, 51, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+            }
+
+            .performance-number {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-bitcoin me-2"></i>BitAutoBot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#performance">성과</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#risk">리스크</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">요금</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">문의</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="animate-fadeInUp">
+                        AI 기반<br>
+                        <span>비트코인 자동매매</span><br>
+                        시스템
+                    </h1>
+                    <p class="lead text-secondary mb-4 animate-fadeInUp" style="animation-delay: 0.2s;">
+                        23개월간 검증된 알고리즘 트레이딩 시스템<br>
+                        감정 없이, 24시간 자동으로 매매합니다.
+                    </p>
+                    <div class="hero-stats animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="stat-item">
+                            <div class="stat-value">+$124,201</div>
+                            <div class="stat-label">총 순수익 (1 BTC 기준)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">43.78%</div>
+                            <div class="stat-label">승률</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">450</div>
+                            <div class="stat-label">총 거래 횟수</div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary-custom mt-4 animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <i class="fas fa-rocket me-2"></i>사전 등록하기
+                    </a>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="chart-container animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <canvas id="equityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="performance-section">
+        <div class="container">
+            <h2 class="section-title">23개월 실제 백테스트 성과</h2>
+            <p class="section-subtitle">2024년 1월 ~ 2025년 11월 | 비트코인 15분봉 기준</p>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-3 col-6">
+                    <div class="performance-card text-center">
+                        <div class="performance-number positive">+$124,201</div>
+                        <p class="text-secondary mb-0">총 순수익</p>
+                        <small class="text-muted">(1 BTC 기준, 수수료 포함)</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="performance-card text-center">
+                        <div class="performance-number">450회</div>
+                        <p class="text-secondary mb-0">총 거래 횟수</p>
+                        <small class="text-muted">(월 평균 19.6회)</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="performance-card text-center">
+                        <div class="performance-number">43.78%</div>
+                        <p class="text-secondary mb-0">승률</p>
+                        <small class="text-muted">(197승 253패)</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="performance-card text-center">
+                        <div class="performance-number positive">+$276</div>
+                        <p class="text-secondary mb-0">평균 거래 손익</p>
+                        <small class="text-muted">(거래당)</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Performance Chart -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card p-4">
+                        <h4 class="mb-4"><i class="fas fa-chart-bar me-2 text-warning"></i>월별 수익 현황</h4>
+                        <div style="height: 350px;">
+                            <canvas id="monthlyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Table -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card p-4">
+                        <h5 class="mb-3"><i class="fas fa-calendar-alt me-2 text-warning"></i>2024년 월별 성과</h5>
+                        <table class="monthly-table">
+                            <thead>
+                                <tr>
+                                    <th>월</th>
+                                    <th>손익</th>
+                                    <th>거래수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1월</td><td class="negative">-$2,322</td><td>22</td></tr>
+                                <tr><td>2월</td><td class="positive">+$10,570</td><td>21</td></tr>
+                                <tr><td>3월</td><td class="negative">-$2,901</td><td>23</td></tr>
+                                <tr><td>4월</td><td class="positive">+$6,283</td><td>17</td></tr>
+                                <tr><td>5월</td><td class="positive">+$5,636</td><td>17</td></tr>
+                                <tr><td>6월</td><td class="negative">-$2,708</td><td>22</td></tr>
+                                <tr><td>7월</td><td class="positive">+$3,505</td><td>18</td></tr>
+                                <tr><td>8월</td><td class="negative">-$991</td><td>21</td></tr>
+                                <tr><td>9월</td><td class="positive">+$6,398</td><td>22</td></tr>
+                                <tr><td>10월</td><td class="positive">+$8,133</td><td>16</td></tr>
+                                <tr><td>11월</td><td class="positive">+$15,992</td><td>15</td></tr>
+                                <tr><td>12월</td><td class="positive">+$3,495</td><td>17</td></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr style="background: rgba(247,147,26,0.1);">
+                                    <td><strong>합계</strong></td>
+                                    <td class="positive"><strong>+$51,090</strong></td>
+                                    <td><strong>231</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="card p-4">
+                        <h5 class="mb-3"><i class="fas fa-calendar-alt me-2 text-warning"></i>2025년 월별 성과</h5>
+                        <table class="monthly-table">
+                            <thead>
+                                <tr>
+                                    <th>월</th>
+                                    <th>손익</th>
+                                    <th>거래수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1월</td><td class="positive">+$5,834</td><td>19</td></tr>
+                                <tr><td>2월</td><td class="positive">+$10,015</td><td>22</td></tr>
+                                <tr><td>3월</td><td class="negative">-$2,851</td><td>26</td></tr>
+                                <tr><td>4월</td><td class="positive">+$566</td><td>18</td></tr>
+                                <tr><td>5월</td><td class="positive">+$10,928</td><td>20</td></tr>
+                                <tr><td>6월</td><td class="positive">+$4,312</td><td>21</td></tr>
+                                <tr><td>7월</td><td class="positive">+$2,461</td><td>18</td></tr>
+                                <tr><td>8월</td><td class="positive">+$14,123</td><td>20</td></tr>
+                                <tr><td>9월</td><td class="positive">+$2,835</td><td>21</td></tr>
+                                <tr><td>10월</td><td class="positive">+$20,179</td><td>18</td></tr>
+                                <tr><td>11월</td><td class="positive">+$4,705</td><td>16</td></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr style="background: rgba(247,147,26,0.1);">
+                                    <td><strong>합계</strong></td>
+                                    <td class="positive"><strong>+$73,107</strong></td>
+                                    <td><strong>219</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Section -->
+    <section id="risk" class="risk-section">
+        <div class="container">
+            <h2 class="section-title">리스크 분석 & 레버리지 가이드</h2>
+            <p class="section-subtitle">투명한 리스크 공개로 안전한 투자를 도와드립니다</p>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="risk-card h-100">
+                        <h4 class="mb-4"><i class="fas fa-exclamation-triangle text-warning me-2"></i>연속 손절 분석</h4>
+                        <p class="text-secondary mb-4">
+                            23개월간 발생한 연속 손절 패턴을 분석하여 최악의 시나리오에 대비합니다.
+                        </p>
+
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="p-3 rounded" style="background: rgba(218,54,51,0.1);">
+                                    <h5 class="text-danger mb-1">9회</h5>
+                                    <small class="text-secondary">최대 연속 손절</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 rounded" style="background: rgba(218,54,51,0.1);">
+                                    <h5 class="text-danger mb-1">-$15,355</h5>
+                                    <small class="text-secondary">최대 낙폭</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="mt-4 mb-3">연속 손절 분포</h5>
+                        <div class="progress mb-2" style="height: 25px;">
+                            <div class="progress-bar bg-success" style="width: 50%;">2~3회: 65%</div>
+                        </div>
+                        <div class="progress mb-2" style="height: 25px;">
+                            <div class="progress-bar bg-warning" style="width: 30%;">4~6회: 25%</div>
+                        </div>
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar bg-danger" style="width: 15%;">7회+: 10%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="risk-card h-100">
+                        <h4 class="mb-4"><i class="fas fa-balance-scale text-warning me-2"></i>레버리지별 예상 성과</h4>
+                        <p class="text-secondary mb-4">
+                            초기 자본 $10,000 기준, 레버리지에 따른 예상 수익과 리스크입니다.
+                        </p>
+
+                        <table class="leverage-table">
+                            <thead>
+                                <tr>
+                                    <th>레버리지</th>
+                                    <th>예상 수익</th>
+                                    <th>최대 낙폭</th>
+                                    <th>위험도</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="recommended">
+                                    <td><strong>1x</strong></td>
+                                    <td class="positive">+$1,242</td>
+                                    <td>-$153 (1.5%)</td>
+                                    <td><span class="badge bg-success">안전</span></td>
+                                </tr>
+                                <tr class="recommended">
+                                    <td><strong>2x</strong></td>
+                                    <td class="positive">+$2,484</td>
+                                    <td>-$307 (3.1%)</td>
+                                    <td><span class="badge bg-success">권장</span></td>
+                                </tr>
+                                <tr class="caution">
+                                    <td><strong>3x</strong></td>
+                                    <td class="positive">+$3,726</td>
+                                    <td>-$460 (4.6%)</td>
+                                    <td><span class="badge bg-warning text-dark">주의</span></td>
+                                </tr>
+                                <tr class="danger">
+                                    <td><strong>5x</strong></td>
+                                    <td class="positive">+$6,210</td>
+                                    <td>-$767 (7.7%)</td>
+                                    <td><span class="badge bg-danger">고위험</span></td>
+                                </tr>
+                                <tr class="danger">
+                                    <td><strong>10x</strong></td>
+                                    <td class="positive">+$12,420</td>
+                                    <td>-$1,535 (15.4%)</td>
+                                    <td><span class="badge bg-danger">초고위험</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="alert alert-warning mt-4 mb-0">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            <strong>권장 레버리지: 1~2배</strong><br>
+                            <small>안정적인 복리 효과를 위해 보수적인 레버리지를 권장합니다.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="performance-section">
+        <div class="container">
+            <h2 class="section-title">요금제</h2>
+            <p class="section-subtitle">합리적인 가격으로 전문 트레이딩 시스템을 이용하세요</p>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-4 text-center h-100">
+                        <h4 class="text-secondary">Basic</h4>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold">$49</span>
+                            <span class="text-secondary">/월</span>
+                        </div>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>15분봉 전략</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1개 거래소 연동</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>기본 대시보드</li>
+                            <li class="mb-2 text-secondary"><i class="fas fa-times me-2"></i>1시간봉 전략</li>
+                        </ul>
+                        <button class="btn btn-outline-light mt-auto" disabled>준비중</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-4 text-center h-100" style="border: 2px solid var(--primary-color);">
+                        <span class="badge bg-warning text-dark position-absolute" style="top: -10px; right: 20px;">인기</span>
+                        <h4 class="text-warning">Pro</h4>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-warning">$99</span>
+                            <span class="text-secondary">/월</span>
+                        </div>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>15분봉 + 1시간봉 전략</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>2개 거래소 연동</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 + 카카오 알림</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>상세 리포트</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>우선 기술 지원</li>
+                        </ul>
+                        <button class="btn btn-primary-custom mt-auto" disabled>준비중</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-4 text-center h-100">
+                        <h4 class="text-secondary">Premium</h4>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold">$199</span>
+                            <span class="text-secondary">/월</span>
+                        </div>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>모든 전략 포함</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>무제한 거래소 연동</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1:1 VIP 지원</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>커스텀 파라미터</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>API 접근권</li>
+                        </ul>
+                        <button class="btn btn-outline-light mt-auto" disabled>준비중</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="section-title">사전 등록</h2>
+            <p class="section-subtitle mb-5">출시 알림을 받고 얼리버드 할인 혜택을 받으세요</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form class="card p-4">
+                        <div class="mb-3">
+                            <label class="form-label">이메일</label>
+                            <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="your@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">관심 요금제</label>
+                            <select class="form-select bg-dark text-light border-secondary">
+                                <option>Basic ($49/월)</option>
+                                <option selected>Pro ($99/월)</option>
+                                <option>Premium ($199/월)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">문의사항 (선택)</label>
+                            <textarea class="form-control bg-dark text-light border-secondary" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100">
+                            <i class="fas fa-paper-plane me-2"></i>사전 등록하기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="text-warning mb-3"><i class="fab fa-bitcoin me-2"></i>BitAutoBot</h5>
+                    <p class="text-secondary">
+                        AI 기반 비트코인 자동매매 시스템<br>
+                        23개월간 검증된 알고리즘 트레이딩
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="disclaimer">
+                        <h6 class="text-danger"><i class="fas fa-exclamation-circle me-2"></i>투자 위험 고지</h6>
+                        <small class="text-secondary">
+                            암호화폐 투자는 높은 위험을 수반합니다. 과거 수익률이 미래 수익을 보장하지 않습니다.
+                            투자 결정은 본인의 판단과 책임 하에 이루어져야 하며, 손실 가능성을 충분히 인지하시기 바랍니다.
+                            본 서비스는 투자 조언이 아닌 자동매매 도구를 제공합니다.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center text-secondary">
+                <small>&copy; 2024-2025 BitAutoBot. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Equity Curve Chart
+        const equityCtx = document.getElementById('equityChart').getContext('2d');
+
+        // 누적 수익 데이터 (월별)
+        const cumulativeData = [
+            -2322, 8248, 5347, 11630, 17267, 14558, 18063, 17072, 23470, 31603, 47595, 51090,
+            56924, 66939, 64088, 64654, 75582, 79894, 82355, 96478, 99313, 119492, 124197
+        ];
+
+        const labels = [
+            '24.01', '24.02', '24.03', '24.04', '24.05', '24.06',
+            '24.07', '24.08', '24.09', '24.10', '24.11', '24.12',
+            '25.01', '25.02', '25.03', '25.04', '25.05', '25.06',
+            '25.07', '25.08', '25.09', '25.10', '25.11'
+        ];
+
+        new Chart(equityCtx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '누적 수익 ($)',
+                    data: cumulativeData,
+                    borderColor: '#f7931a',
+                    backgroundColor: 'rgba(247, 147, 26, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#f7931a'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)'
+                        },
+                        ticks: {
+                            color: '#8b949e'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)'
+                        },
+                        ticks: {
+                            color: '#8b949e',
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Monthly Performance Chart
+        const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+
+        const monthlyPnl = [
+            -2322, 10570, -2901, 6283, 5636, -2708, 3505, -991, 6398, 8133, 15992, 3495,
+            5834, 10015, -2851, 566, 10928, 4312, 2461, 14123, 2835, 20179, 4705
+        ];
+
+        const barColors = monthlyPnl.map(v => v >= 0 ? 'rgba(35, 134, 54, 0.8)' : 'rgba(218, 54, 51, 0.8)');
+
+        new Chart(monthlyCtx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '월별 손익 ($)',
+                    data: monthlyPnl,
+                    backgroundColor: barColors,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#8b949e'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)'
+                        },
+                        ticks: {
+                            color: '#8b949e',
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
