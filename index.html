@@ -433,6 +433,7 @@
                     <li class="nav-item"><a class="nav-link" href="#performance">성과</a></li>
                     <li class="nav-item"><a class="nav-link" href="#video">실전영상</a></li>
                     <li class="nav-item"><a class="nav-link" href="#risk">리스크</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#guide">가이드</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing">요금</a></li>
                 </ul>
             </div>
@@ -1006,11 +1007,81 @@
         </div>
     </section>
 
+    <!-- User Guide Section -->
+    <section id="guide" class="strategy-section section-padding">
+        <div class="container">
+            <h2 class="section-title">사용법 안내</h2>
+            <p class="section-subtitle">PDF 가이드를 따라 쉽게 설정하세요</p>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="strategy-box text-center h-100">
+                        <div class="feature-icon mx-auto" style="background: rgba(74, 144, 217, 0.2);">
+                            <i class="fab fa-telegram text-info"></i>
+                        </div>
+                        <h5 class="mb-3">텔레그램 봇 만들기</h5>
+                        <p class="text-secondary mb-3">
+                            개인 텔레그램 봇을 생성하고<br>
+                            알림을 받을 수 있도록 설정합니다.
+                        </p>
+                        <span class="badge bg-info">PDF 가이드 제공</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="strategy-box text-center h-100">
+                        <div class="feature-icon mx-auto" style="background: rgba(247, 147, 26, 0.2);">
+                            <i class="fas fa-key text-warning"></i>
+                        </div>
+                        <h5 class="mb-3">거래소 API 발급</h5>
+                        <p class="text-secondary mb-3">
+                            비트겟, 바이낸스 등 거래소에서<br>
+                            API Key를 발급받는 방법을 안내합니다.
+                        </p>
+                        <span class="badge bg-warning text-dark">PDF 가이드 제공</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="strategy-box text-center h-100">
+                        <div class="feature-icon mx-auto" style="background: rgba(35, 134, 54, 0.2);">
+                            <i class="fas fa-cog text-success"></i>
+                        </div>
+                        <h5 class="mb-3">프로그램 사용법</h5>
+                        <p class="text-secondary mb-3">
+                            완전 자동매매 프로그램<br>
+                            설치 및 실행 방법을 안내합니다.
+                        </p>
+                        <span class="badge bg-success">PDF 가이드 제공</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <p class="text-secondary">
+                    <i class="fas fa-file-pdf text-danger me-2"></i>
+                    모든 가이드는 <strong class="text-warning">서비스 신청 후</strong> 제공됩니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="pricing" class="performance-section">
         <div class="container">
             <h2 class="section-title">요금제</h2>
             <p class="section-subtitle">합리적인 가격으로 전문 트레이딩 시스템을 이용하세요</p>
+
+            <!-- 모의매매 필수 안내 -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="alert" style="background: rgba(74, 144, 217, 0.15); border: 1px solid rgba(74, 144, 217, 0.5); border-radius: 12px;">
+                        <h5 class="text-info mb-3"><i class="fas fa-flask me-2"></i>모의 매매 필수 (3주)</h5>
+                        <p class="mb-0 text-secondary">
+                            유료 서비스 신청 전, <strong class="text-warning">반드시 3주간의 모의 매매</strong>를 먼저 진행해야 합니다.<br>
+                            모의 테스트를 통해 프로그램 사용법과 매매 방식이 익숙해진 후 유료 서비스 신청이 가능합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6">
@@ -1022,9 +1093,10 @@
                         </div>
                         <ul class="list-unstyled text-start">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1시간봉 전략</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: 0.5~2 BTC</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong>0.5~2 BTC</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC 로그 저장</li>
                         </ul>
                         <button class="btn btn-outline-light mt-auto" disabled>준비중</button>
                     </div>
@@ -1040,9 +1112,10 @@
                         </div>
                         <ul class="list-unstyled text-start">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong>1시간봉 + 15분봉</strong> 전략</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: 0.5~2 BTC</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong>0.5~2 BTC</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC 로그 저장</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>이메일 지원</li>
                         </ul>
                         <button class="btn btn-primary-custom mt-auto" disabled>준비중</button>
@@ -1058,12 +1131,41 @@
                         </div>
                         <ul class="list-unstyled text-start">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong>1시간봉 + 15분봉</strong> 전략</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: 1~5 BTC</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong>1~5 BTC</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC + <strong class="text-info">서버 로그 저장</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1:1 전화 상담</li>
                         </ul>
+                        <small class="text-muted d-block mb-3">(서버 로그 30일 보관)</small>
                         <button class="btn btn-outline-light mt-auto" disabled>준비중</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 사이즈 제한 이유 안내 -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <div class="alert" style="background: rgba(247, 147, 26, 0.1); border: 1px solid rgba(247, 147, 26, 0.3); border-radius: 12px;">
+                        <h6 class="text-warning mb-2"><i class="fas fa-info-circle me-2"></i>거래 규모 제한 안내</h6>
+                        <small class="text-secondary">
+                            같은 거래소에서 동일 가격대에 많은 수량이 동시 진입하면 <strong>슬리피지 증가</strong> 및 <strong>체결 지연</strong>이 발생할 수 있습니다.
+                            안정적인 매매 환경을 위해 플랜별로 거래 규모를 제한하고 있습니다.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 선착순 안내 -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-10">
+                    <div class="alert" style="background: rgba(218, 54, 51, 0.15); border: 1px solid rgba(218, 54, 51, 0.5); border-radius: 12px;">
+                        <h6 class="text-danger mb-2"><i class="fas fa-users me-2"></i>선착순 신청 안내</h6>
+                        <small class="text-secondary">
+                            프로그램 사용 신청은 <strong class="text-warning">선착순</strong>으로 진행됩니다.
+                            거래소 유동성 및 슬리피지 관리를 위해 사용자 수를 제한하고 있으며,
+                            <strong>너무 많은 사용자가 신청할 경우 기존 사용자 보호를 위해 추가 신청을 받지 않을 수 있습니다.</strong>
+                        </small>
                     </div>
                 </div>
             </div>
