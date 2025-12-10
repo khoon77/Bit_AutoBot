@@ -470,7 +470,6 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#why">왜 Bit_ATB?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#strategy">전략 A/B</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#performance">성과</a></li>
                     <li class="nav-item"><a class="nav-link" href="#video">실전영상</a></li>
                     <li class="nav-item"><a class="nav-link" href="#risk">리스크</a></li>
                     <li class="nav-item"><a class="nav-link" href="#guide">가이드</a></li>
@@ -775,17 +774,114 @@
                 </div>
             </div>
 
-            <!-- Price Difference Note -->
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-10">
-                    <div class="alert" style="background: rgba(74, 144, 217, 0.1); border: 1px solid rgba(74, 144, 217, 0.3); border-radius: 12px;">
-                        <h6 class="text-info mb-2"><i class="fas fa-info-circle me-2"></i>수익금 차이에 대한 안내</h6>
-                        <small class="text-secondary">
-                            2021-2023년과 2024-2025년의 절대 수익금 차이는 <strong>비트코인 가격대 차이</strong> 때문입니다.
-                            2024-2025년 비트코인 가격은 2021-2023년 대비 약 <strong class="text-warning">3.3배 높은 수준</strong>이므로,
-                            동일한 1 BTC 기준 수익금이 크게 보이는 것입니다.
-                            <strong>투자금 대비 수익률은 동일한 전략 로직</strong>으로 일관되게 작동합니다.
-                        </small>
+            <!-- Strategy A Performance -->
+            <div class="mt-5">
+                <h3 class="text-center mb-4"><i class="fas fa-chart-area text-info me-2"></i>전략 A - 23개월 성과</h3>
+                <p class="text-center text-secondary mb-4">2024.1 ~ 2025.11 (1 BTC 기준)</p>
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number positive" style="font-size: 2rem;">+$94,399</div>
+                            <p class="text-secondary mb-0">총 순수익</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem;">195회</div>
+                            <p class="text-secondary mb-0">거래 횟수</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem;">48.21%</div>
+                            <p class="text-secondary mb-0">승률</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem;">월 8.5회</div>
+                            <p class="text-secondary mb-0">평균 거래</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem; color: var(--secondary-color);">4회</div>
+                            <p class="text-secondary mb-0">최대 연속손절</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number positive" style="font-size: 2rem;">+$484</div>
+                            <p class="text-secondary mb-0">거래당 수익</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategy A Chart -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="card p-4">
+                            <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-info"></i>전략 A 월별 수익 (2024.1~2025.11)</h4>
+                            <div style="height: 350px;">
+                                <canvas id="monthlyChart1H"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategy B Performance -->
+            <div class="mt-5">
+                <h3 class="text-center mb-4"><i class="fas fa-chart-area text-warning me-2"></i>전략 B - 23개월 성과</h3>
+                <p class="text-center text-secondary mb-4">2024.1 ~ 2025.11 (1 BTC 기준)</p>
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number positive" style="font-size: 2rem;">+$122,780</div>
+                            <p class="text-secondary mb-0">총 순수익</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem;">451회</div>
+                            <p class="text-secondary mb-0">거래 횟수</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem;">43.68%</div>
+                            <p class="text-secondary mb-0">승률</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem;">월 19.6회</div>
+                            <p class="text-secondary mb-0">평균 거래</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number" style="font-size: 2rem; color: var(--primary-color);">8회</div>
+                            <p class="text-secondary mb-0">최대 연속손절</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="performance-card text-center">
+                            <div class="performance-number positive" style="font-size: 2rem;">+$272</div>
+                            <p class="text-secondary mb-0">거래당 수익</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategy B Chart -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card p-4">
+                            <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-warning"></i>전략 B 월별 수익 (2024.1~2025.11)</h4>
+                            <div style="height: 350px;">
+                                <canvas id="monthlyChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -834,188 +930,6 @@
                     <i class="fab fa-youtube text-danger me-2"></i>
                     곧 실제 매매 영상이 업로드됩니다. 기대해주세요!
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Performance Section -->
-    <section id="performance" class="performance-section">
-        <div class="container">
-            <div class="year-badge mb-3">5년간 검증 (2021~2025)</div>
-            <h2 class="section-title">백테스트 성과</h2>
-            <p class="section-subtitle">212,475개 캔들 데이터 분석 결과</p>
-
-            <!-- 5 Year Total Summary -->
-            <div class="row g-4 mb-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number positive">+$283,140</div>
-                        <p class="text-secondary mb-0">5년 총 순수익</p>
-                        <small class="text-muted">(1 BTC 기준, 전략 A+B 합산)</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number">1,962회</div>
-                        <p class="text-secondary mb-0">총 거래 횟수</p>
-                        <small class="text-muted">(전략 A: 569회 + 전략 B: 1,393회)</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number">41.4%</div>
-                        <p class="text-secondary mb-0">평균 승률</p>
-                        <small class="text-muted">(손익비로 수익 실현)</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="color: var(--secondary-color);">+$144.3</div>
-                        <p class="text-secondary mb-0">거래당 평균 수익</p>
-                        <small class="text-muted">(총 순수익 / 거래횟수)</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2024-2025 Highlight -->
-            <div class="period-badge mb-3">2024.1 ~ 2025.11 (23개월) - 주요 성과</div>
-
-            <!-- Strategy A Performance (2024-2025) -->
-            <h3 class="text-center mb-4"><i class="fas fa-chart-area text-info me-2"></i>전략 A - 23개월 성과</h3>
-            <div class="row g-4 mb-5">
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number positive" style="font-size: 2rem;">+$94,399</div>
-                        <p class="text-secondary mb-0">총 순수익</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem;">195회</div>
-                        <p class="text-secondary mb-0">거래 횟수</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem;">48.21%</div>
-                        <p class="text-secondary mb-0">승률</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem;">월 8.5회</div>
-                        <p class="text-secondary mb-0">평균 거래</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem; color: var(--secondary-color);">4회</div>
-                        <p class="text-secondary mb-0">최대 연속손절</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number positive" style="font-size: 2rem;">+$484</div>
-                        <p class="text-secondary mb-0">거래당 수익</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 1H Chart -->
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card p-4">
-                        <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-info"></i>전략 A 월별 수익 (2024.1~2025.11)</h4>
-                        <div style="height: 350px;">
-                            <canvas id="monthlyChart1H"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Strategy B Performance (2024-2025) -->
-            <h3 class="text-center mb-4"><i class="fas fa-chart-area text-warning me-2"></i>전략 B - 23개월 성과</h3>
-            <div class="row g-4 mb-5">
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number positive" style="font-size: 2rem;">+$122,780</div>
-                        <p class="text-secondary mb-0">총 순수익</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem;">451회</div>
-                        <p class="text-secondary mb-0">거래 횟수</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem;">43.68%</div>
-                        <p class="text-secondary mb-0">승률</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem;">월 19.6회</div>
-                        <p class="text-secondary mb-0">평균 거래</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number" style="font-size: 2rem; color: var(--primary-color);">8회</div>
-                        <p class="text-secondary mb-0">최대 연속손절</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="performance-card text-center">
-                        <div class="performance-number positive" style="font-size: 2rem;">+$272</div>
-                        <p class="text-secondary mb-0">거래당 수익</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 15m Chart -->
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card p-4">
-                        <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-warning"></i>전략 B 월별 수익 (2024.1~2025.11)</h4>
-                        <div style="height: 350px;">
-                            <canvas id="monthlyChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2021-2023 Summary (Small) -->
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card p-4" style="background: rgba(74, 144, 217, 0.05);">
-                        <h5 class="text-center mb-4 text-secondary"><i class="fas fa-history me-2"></i>2021-2023년 성과 (참고)</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="text-center p-3 rounded" style="background: rgba(74,144,217,0.1);">
-                                    <h6 class="text-info mb-2">전략 A</h6>
-                                    <p class="mb-1"><span class="text-success">+$27,943</span> 순수익</p>
-                                    <small class="text-muted">374회 거래 | 40.11% 승률 | 최대 8연속 손절</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center p-3 rounded" style="background: rgba(247,147,26,0.1);">
-                                    <h6 class="text-warning mb-2">전략 B</h6>
-                                    <p class="mb-1"><span class="text-success">+$38,017</span> 순수익</p>
-                                    <small class="text-muted">942회 거래 | 38.00% 승률 | 최대 12연속 손절</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mt-3">
-                            <small class="text-secondary">
-                                <i class="fas fa-info-circle me-1"></i>
-                                2021-2023년 비트코인 평균 가격은 2024-2025년 대비 약 1/3 수준이므로 절대 수익금이 낮게 보입니다.
-                                투자금 대비 수익률은 동일한 로직으로 일관됩니다.
-                            </small>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
