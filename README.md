@@ -1,4 +1,4 @@
-# BitAutoBot - AI 기반 비트코인 자동매매 시스템
+# Bit_AutoTradingBot - AI 기반 비트코인 자동매매 시스템
 
 AI 알고리즘 기반의 비트코인 자동매매 시스템입니다.
 
@@ -11,7 +11,7 @@ AI 알고리즘 기반의 비트코인 자동매매 시스템입니다.
 
 ## 웹사이트
 
-[BitAutoBot 랜딩 페이지](https://khoon77.github.io/Bit_AutoBot/)
+[Bit_AutoTradingBot 랜딩 페이지](https://khoon77.github.io/Bit_AutoBot/)
 
 ## 기능
 
@@ -27,4 +27,4 @@ AI 알고리즘 기반의 비트코인 자동매매 시스템입니다.
 
 ---
 
-&copy; 2024-2025 BitAutoBot. All rights reserved.
+&copy; 2024-2025 Bit_AutoTradingBot. All rights reserved.
