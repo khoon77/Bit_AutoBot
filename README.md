@@ -11,11 +11,11 @@ AI 알고리즘 기반의 비트코인 자동매매 시스템입니다.
 
 ## 웹사이트
 
-[Bit_AutoTradingBot 랜딩 페이지](https://khoon77.github.io/Bit_AutoBot/)
+[Bit_ATB 랜딩 페이지](https://khoon77.github.io/Bit_AutoBot/)
 
 ## 기능
 
-- 15분봉 기반 자동매매
+- ATR 돌파 전략 기반 자동매매
 - 실시간 거래 알림 (텔레그램)
 - 리스크 관리 시스템
 - 다중 거래소 지원 예정
@@ -27,4 +27,4 @@ AI 알고리즘 기반의 비트코인 자동매매 시스템입니다.
 
 ---
 
-&copy; 2024-2025 Bit_AutoTradingBot. All rights reserved.
+&copy; 2024-2025 Bit_ATB. All rights reserved.
