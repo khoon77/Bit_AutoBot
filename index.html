@@ -1296,25 +1296,40 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Equity Curve Chart (5년 합산)
+        // Equity Curve Chart (23개월 A+B 합산)
         const equityCtx = document.getElementById('equityChart').getContext('2d');
 
-        // 5년 누적 수익 데이터 (연도별)
-        const yearlyLabels = ['2021', '2022', '2023', '2024', '2025.11'];
-        const cumulativeYearly = [25000, 55000, 65960, 167702, 283140];
+        // 23개월 월별 라벨
+        const monthLabels = [
+            '24.01', '24.02', '24.03', '24.04', '24.05', '24.06',
+            '24.07', '24.08', '24.09', '24.10', '24.11', '24.12',
+            '25.01', '25.02', '25.03', '25.04', '25.05', '25.06',
+            '25.07', '25.08', '25.09', '25.10', '25.11'
+        ];
+
+        // 전략 A + B 합산 월별 수익
+        const monthlyPnlA = [-3037, 12790, 6804, 6817, -1521, 6480, 3330, 9475, -282, 5864, 6920, -3073, -260, 3730, -210, -285, -2181, -243, 4469, 3004, 4989, 18836, 9324];
+        const monthlyPnlB = [-2322, 10570, -2901, 6283, 5636, -2708, 3505, -991, 6398, 8133, 15992, 3495, 5834, 10015, -2851, 566, 10928, 4312, 2461, 14123, 2835, 20179, 4705];
+
+        // A+B 합산 후 누적
+        let cumulative = 0;
+        const cumulativeData = monthlyPnlA.map((a, i) => {
+            cumulative += a + monthlyPnlB[i];
+            return cumulative;
+        });
 
         new Chart(equityCtx, {
             type: 'line',
             data: {
-                labels: yearlyLabels,
+                labels: monthLabels,
                 datasets: [{
                     label: '누적 수익 ($)',
-                    data: cumulativeYearly,
+                    data: cumulativeData,
                     borderColor: '#f7931a',
                     backgroundColor: 'rgba(247, 147, 26, 0.1)',
                     fill: true,
                     tension: 0.4,
-                    pointRadius: 6,
+                    pointRadius: 4,
                     pointBackgroundColor: '#f7931a',
                     borderWidth: 3
                 }]
@@ -1328,7 +1343,7 @@
                     },
                     title: {
                         display: true,
-                        text: '5년 누적 수익 곡선 (1 BTC 기준, 전략 A+B)',
+                        text: '23개월 누적 수익 곡선 (2024.1~2025.11, 전략 A+B 각 1BTC)',
                         color: '#8b949e',
                         font: {
                             size: 14
