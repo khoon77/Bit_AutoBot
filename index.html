@@ -502,8 +502,8 @@
                     <div class="hero-stats animate-fadeInUp" style="animation-delay: 0.4s;">
                         <div class="stat-item">
                             <div class="stat-value">+$217,179</div>
-                            <div class="stat-label">23개월 총 순수익 (1BTC 기준)</div>
-                            <small class="small-note">2024.1~2025.11, 전략 A+B 합산</small>
+                            <div class="stat-label">23개월 총 순수익</div>
+                            <small class="small-note">2024.1~2025.11, 전략 A+B 합산(각 1BTC 기준)</small>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">646회</div>
@@ -624,7 +624,7 @@
     <section id="strategy" class="strategy-section section-padding">
         <div class="container">
             <h2 class="section-title">매매 전략 A / B</h2>
-            <p class="section-subtitle">AI로 최적화된 ATR 돌파 전략, 두 가지 버전으로 선택하세요</p>
+            <p class="section-subtitle">AI로 최적화된 ATR 돌파 전략</p>
 
             <!-- Strategy Overview -->
             <div class="row g-4 mb-5">
@@ -677,10 +677,10 @@
                 </div>
             </div>
 
-            <!-- Strategy A & B Cards -->
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="strategy-card strategy-a h-100">
+            <!-- Strategy A Card -->
+            <div class="row g-4 mb-4">
+                <div class="col-12">
+                    <div class="strategy-card strategy-a">
                         <div class="d-flex align-items-center mb-4">
                             <div class="feature-icon me-3" style="background: rgba(74, 144, 217, 0.2);">
                                 <i class="fas fa-clock text-info"></i>
@@ -692,16 +692,28 @@
                         </div>
 
                         <div class="row g-3 mb-4">
-                            <div class="col-6">
+                            <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(74,144,217,0.1);">
                                     <h4 class="text-info mb-1">+$94,399</h4>
                                     <small class="text-secondary">23개월 순수익</small>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(74,144,217,0.1);">
                                     <h4 class="text-info mb-1">48.21%</h4>
                                     <small class="text-secondary">승률</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 rounded text-center" style="background: rgba(74,144,217,0.1);">
+                                    <h4 class="text-info mb-1">월 8.5회</h4>
+                                    <small class="text-secondary">평균 거래</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 rounded text-center" style="background: rgba(74,144,217,0.1);">
+                                    <h4 class="text-info mb-1">4회</h4>
+                                    <small class="text-secondary">최대 연속손절</small>
                                 </div>
                             </div>
                         </div>
@@ -709,25 +721,35 @@
                         <ul class="list-unstyled mb-4">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong>월평균 8.5회</strong> 거래 - 빠른 매매가 아닌 편안한 매매</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong>주평균 2회</strong> 거래 - 느긋하게 모니터링 가능</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>최대 연속 손절: <strong>4회</strong> (2024-2025년 기준)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>평균 보유시간: <strong>약 13시간</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래당 평균 수익: <strong>$484</strong></li>
                         </ul>
 
                         <div class="alert mb-0" style="background: rgba(74,144,217,0.1); border: 1px solid rgba(74,144,217,0.3);">
                             <i class="fas fa-user-tie text-info me-2"></i>
-                            <strong>이런 분께 추천:</strong><br>
+                            <strong>이런 분께 추천:</strong>
                             <small>직장인, 부업으로 시작하는 분, 안정적인 매매를 원하는 분</small>
-                        </div>
-
-                        <div class="mt-3 small-note">
-                            <i class="fas fa-info-circle me-1"></i>
-                            2021-2023년: $27,943 수익, 374회 거래, 40.11% 승률
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-6">
-                    <div class="strategy-card strategy-b h-100">
+            <!-- Strategy A Chart -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card p-4">
+                        <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-info"></i>전략 A 월별 수익 (2024.1~2025.11)</h4>
+                        <div style="height: 350px;">
+                            <canvas id="monthlyChart1H"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategy B Card -->
+            <div class="row g-4 mb-4">
+                <div class="col-12">
+                    <div class="strategy-card strategy-b">
                         <div class="d-flex align-items-center mb-4">
                             <div class="feature-icon me-3" style="background: rgba(247, 147, 26, 0.2);">
                                 <i class="fas fa-bolt text-warning"></i>
@@ -739,16 +761,28 @@
                         </div>
 
                         <div class="row g-3 mb-4">
-                            <div class="col-6">
+                            <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(247,147,26,0.1);">
                                     <h4 class="text-warning mb-1">+$122,780</h4>
                                     <small class="text-secondary">23개월 순수익</small>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(247,147,26,0.1);">
                                     <h4 class="text-warning mb-1">43.68%</h4>
                                     <small class="text-secondary">승률</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 rounded text-center" style="background: rgba(247,147,26,0.1);">
+                                    <h4 class="text-warning mb-1">월 19.6회</h4>
+                                    <small class="text-secondary">평균 거래</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 rounded text-center" style="background: rgba(247,147,26,0.1);">
+                                    <h4 class="text-warning mb-1">8회</h4>
+                                    <small class="text-secondary">최대 연속손절</small>
                                 </div>
                             </div>
                         </div>
@@ -756,131 +790,26 @@
                         <ul class="list-unstyled mb-4">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong>월평균 19.6회</strong> 거래 - 활발한 매매</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong>주평균 4.5회</strong> 거래 - 빠른 수익 실현</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>최대 연속 손절: <strong>8회</strong> (2024-2025년 기준)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>평균 보유시간: <strong>약 3시간</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래당 평균 수익: <strong>$272</strong></li>
                         </ul>
 
                         <div class="alert mb-0" style="background: rgba(247,147,26,0.1); border: 1px solid rgba(247,147,26,0.3);">
                             <i class="fas fa-chart-line text-warning me-2"></i>
-                            <strong>이런 분께 추천:</strong><br>
+                            <strong>이런 분께 추천:</strong>
                             <small>거래 경험이 있는 분, 적극적 수익을 원하는 분, 빠른 대응 가능한 분</small>
                         </div>
-
-                        <div class="mt-3 small-note">
-                            <i class="fas fa-info-circle me-1"></i>
-                            2021-2023년: $38,017 수익, 942회 거래, 38.00% 승률
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Strategy A Performance -->
-            <div class="mt-5">
-                <h3 class="text-center mb-4"><i class="fas fa-chart-area text-info me-2"></i>전략 A - 23개월 성과</h3>
-                <p class="text-center text-secondary mb-4">2024.1 ~ 2025.11 (1 BTC 기준)</p>
-                <div class="row g-4 mb-4">
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number positive" style="font-size: 2rem;">+$94,399</div>
-                            <p class="text-secondary mb-0">총 순수익</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem;">195회</div>
-                            <p class="text-secondary mb-0">거래 횟수</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem;">48.21%</div>
-                            <p class="text-secondary mb-0">승률</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem;">월 8.5회</div>
-                            <p class="text-secondary mb-0">평균 거래</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem; color: var(--secondary-color);">4회</div>
-                            <p class="text-secondary mb-0">최대 연속손절</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number positive" style="font-size: 2rem;">+$484</div>
-                            <p class="text-secondary mb-0">거래당 수익</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Strategy A Chart -->
-                <div class="row mb-5">
-                    <div class="col-12">
-                        <div class="card p-4">
-                            <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-info"></i>전략 A 월별 수익 (2024.1~2025.11)</h4>
-                            <div style="height: 350px;">
-                                <canvas id="monthlyChart1H"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Strategy B Performance -->
-            <div class="mt-5">
-                <h3 class="text-center mb-4"><i class="fas fa-chart-area text-warning me-2"></i>전략 B - 23개월 성과</h3>
-                <p class="text-center text-secondary mb-4">2024.1 ~ 2025.11 (1 BTC 기준)</p>
-                <div class="row g-4 mb-4">
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number positive" style="font-size: 2rem;">+$122,780</div>
-                            <p class="text-secondary mb-0">총 순수익</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem;">451회</div>
-                            <p class="text-secondary mb-0">거래 횟수</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem;">43.68%</div>
-                            <p class="text-secondary mb-0">승률</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem;">월 19.6회</div>
-                            <p class="text-secondary mb-0">평균 거래</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number" style="font-size: 2rem; color: var(--primary-color);">8회</div>
-                            <p class="text-secondary mb-0">최대 연속손절</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="performance-card text-center">
-                            <div class="performance-number positive" style="font-size: 2rem;">+$272</div>
-                            <p class="text-secondary mb-0">거래당 수익</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Strategy B Chart -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card p-4">
-                            <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-warning"></i>전략 B 월별 수익 (2024.1~2025.11)</h4>
-                            <div style="height: 350px;">
-                                <canvas id="monthlyChart"></canvas>
-                            </div>
+            <!-- Strategy B Chart -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card p-4">
+                        <h4 class="mb-4" style="color: #ffffff;"><i class="fas fa-chart-bar me-2 text-warning"></i>전략 B 월별 수익 (2024.1~2025.11)</h4>
+                        <div style="height: 350px;">
+                            <canvas id="monthlyChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -937,7 +866,7 @@
     <!-- Risk Section -->
     <section id="risk" class="risk-section">
         <div class="container">
-            <h2 class="section-title">리스크 분석 & 레버리지 가이드</h2>
+            <h2 class="section-title"><span class="badge bg-danger me-2">가장 중요</span>리스크 분석 & 레버리지 가이드</h2>
             <p class="section-subtitle">5년간 데이터로 분석한 최악의 시나리오</p>
 
             <div class="row g-4">
@@ -1182,36 +1111,36 @@
 
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6">
-                    <div class="card p-4 text-center h-100">
-                        <h4 class="text-secondary">Basic</h4>
+                    <div class="card p-4 text-center h-100" style="background: var(--card-bg);">
+                        <h4 class="text-info">Basic</h4>
                         <small class="text-info mb-2">전략 A만 사용</small>
                         <div class="my-4">
-                            <span class="display-4 fw-bold">49만원</span>
-                            <span class="text-secondary">/월</span>
+                            <span class="display-4 fw-bold text-white">49만원</span>
+                            <span class="text-light">/월</span>
                         </div>
-                        <ul class="list-unstyled text-start">
+                        <ul class="list-unstyled text-start text-light">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong class="text-info">전략 A</strong></li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong>0.5~2 BTC</strong></li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong class="text-white">0.5~2 BTC</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC 로그 저장</li>
                         </ul>
-                        <button class="btn btn-outline-light mt-auto" disabled>준비중</button>
+                        <button class="btn btn-outline-info mt-auto" disabled>준비중</button>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="card p-4 text-center h-100" style="border: 2px solid var(--primary-color);">
+                    <div class="card p-4 text-center h-100" style="border: 2px solid var(--primary-color); background: var(--card-bg);">
                         <span class="badge bg-warning text-dark position-absolute" style="top: -10px; right: 20px;">추천</span>
                         <h4 class="text-warning">Pro</h4>
                         <small class="text-warning mb-2">전략 A + B 모두 사용</small>
                         <div class="my-4">
                             <span class="display-4 fw-bold text-warning">99만원</span>
-                            <span class="text-secondary">/월</span>
+                            <span class="text-light">/월</span>
                         </div>
-                        <ul class="list-unstyled text-start">
+                        <ul class="list-unstyled text-start text-light">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong class="text-info">전략 A</strong> + <strong class="text-warning">전략 B</strong></li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong>0.5~2 BTC</strong></li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong class="text-white">0.5~2 BTC</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC 로그 저장</li>
@@ -1222,23 +1151,23 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="card p-4 text-center h-100">
-                        <h4 class="text-secondary">Premium</h4>
+                    <div class="card p-4 text-center h-100" style="background: var(--card-bg);">
+                        <h4 class="text-danger">Premium</h4>
                         <small class="text-warning mb-2">전략 A + B + 대용량</small>
                         <div class="my-4">
-                            <span class="display-4 fw-bold">299만원</span>
-                            <span class="text-secondary">/월</span>
+                            <span class="display-4 fw-bold text-white">299만원</span>
+                            <span class="text-light">/월</span>
                         </div>
-                        <ul class="list-unstyled text-start">
+                        <ul class="list-unstyled text-start text-light">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i><strong class="text-info">전략 A</strong> + <strong class="text-warning">전략 B</strong></li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong>1~5 BTC</strong></li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>거래규모: <strong class="text-white">1~5 BTC</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>텔레그램 알림</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC + <strong class="text-info">서버 로그 저장</strong></li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1:1 전화 상담</li>
                         </ul>
-                        <small class="text-muted d-block mb-3">(서버 로그 30일 보관)</small>
-                        <button class="btn btn-outline-light mt-auto" disabled>준비중</button>
+                        <small class="text-light d-block mb-3">(서버 로그 30일 보관)</small>
+                        <button class="btn btn-outline-danger mt-auto" disabled>준비중</button>
                     </div>
                 </div>
             </div>
