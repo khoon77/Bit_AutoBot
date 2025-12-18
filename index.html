@@ -407,6 +407,55 @@
             opacity: 0.8;
         }
 
+        /* Verification Box - 새로 추가 */
+        .verification-box {
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 1px solid rgba(247, 147, 26, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .verification-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .verification-table th,
+        .verification-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .verification-table th {
+            background: rgba(247, 147, 26, 0.2);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .verification-table td {
+            background: rgba(0,0,0,0.2);
+        }
+
+        .verification-table .total-row {
+            background: rgba(247, 147, 26, 0.1);
+            font-weight: 600;
+        }
+
+        .pre-launch-badge {
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            color: #fff;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -453,6 +502,15 @@
             .section-title {
                 font-size: 1.8rem;
             }
+
+            .verification-table {
+                font-size: 0.75rem;
+            }
+
+            .verification-table th,
+            .verification-table td {
+                padding: 6px 4px;
+            }
         }
     </style>
 </head>
@@ -485,7 +543,7 @@
     <section class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 hero-content">
+                <div class="col-lg-7 hero-content">
                     <div class="badge-new animate-fadeInUp">
                         <i class="fas fa-rocket me-2"></i>100% 완전자동 매매 출시
                     </div>
@@ -499,6 +557,71 @@
                         진입, 익절, 손절까지 <strong class="text-warning">100% 완전 자동</strong><br>
                         감정 없이 24시간 매매합니다.
                     </p>
+
+                    <!-- 성과 검증 섹션 추가 -->
+                    <div class="verification-box animate-fadeInUp" style="animation-delay: 0.3s;">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <h5 class="mb-0 text-warning"><i class="fas fa-check-circle me-2"></i>성과 검증</h5>
+                            <span class="pre-launch-badge"><i class="fas fa-gift me-1"></i>사전 출시 50% 할인!</span>
+                        </div>
+                        <ul class="list-unstyled mb-3">
+                            <li class="mb-2"><i class="fas fa-chart-line text-info me-2"></i><strong>백테스트:</strong> 약 5년간 검증 완료 (2021.1 ~ 2025.11)</li>
+                            <li class="mb-2"><i class="fas fa-coins text-success me-2"></i><strong>실제 매매:</strong> 3개월 검증 예정 (2026.1 ~ 3)</li>
+                        </ul>
+                        <p class="text-secondary mb-3" style="font-size: 0.9rem;">
+                            <i class="fas fa-calendar-alt me-1"></i> 2026.6월 이후 ~ <strong class="text-warning">정식 출시 예정!</strong>
+                        </p>
+
+                        <!-- 백테스트 결과 비교 표 -->
+                        <h6 class="text-light mb-2"><i class="fas fa-table me-2"></i>백테스트 결과 vs 실제 매매 비교</h6>
+                        <div class="table-responsive">
+                            <table class="verification-table">
+                                <thead>
+                                    <tr>
+                                        <th>구분</th>
+                                        <th>백테스트<br><small>(2021.1~2023.12)</small></th>
+                                        <th>백테스트<br><small>(2024.1~2025.11)</small></th>
+                                        <th>실제 매매<br><small>(2026.1~3)</small></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong class="text-secondary"><i class="fab fa-bitcoin me-1"></i>BTC 평균가</strong></td>
+                                        <td><strong>~$33,000</strong></td>
+                                        <td><strong>~$79,000</strong></td>
+                                        <td><span class="text-muted">-</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong class="text-info">전략 A</strong></td>
+                                        <td>$27,943<br><small class="text-secondary">374회 / 40.1%</small></td>
+                                        <td>$94,400<br><small class="text-secondary">195회 / 48.2%</small></td>
+                                        <td><span class="text-muted">-</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong class="text-warning">전략 B</strong></td>
+                                        <td>$38,017<br><small class="text-secondary">942회 / 38.0%</small></td>
+                                        <td>$122,780<br><small class="text-secondary">451회 / 43.7%</small></td>
+                                        <td><span class="text-muted">-</span></td>
+                                    </tr>
+                                    <tr class="total-row">
+                                        <td><strong>합계</strong></td>
+                                        <td><strong class="text-success">$65,960</strong></td>
+                                        <td><strong class="text-success">$217,180</strong></td>
+                                        <td><span class="text-muted">-</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <small class="text-secondary d-block mt-2">* 거래규모: 전략별 1BTC 기준</small>
+                        <div class="alert mt-3 mb-0" style="background: rgba(74, 144, 217, 0.1); border: 1px solid rgba(74, 144, 217, 0.3); padding: 12px; border-radius: 8px;">
+                            <small>
+                                <i class="fas fa-info-circle text-info me-1"></i>
+                                <strong>승률은 비슷하지만 비트코인 가격대가 다르므로 수익 금액이 다릅니다.</strong><br>
+                                <span class="text-secondary">예: $33,000 × 3% = <strong>$990</strong> vs $79,000 × 3% = <strong>$2,370</strong></span>
+                            </small>
+                        </div>
+                    </div>
+
                     <div class="hero-stats animate-fadeInUp" style="animation-delay: 0.4s;">
                         <div class="stat-item">
                             <div class="stat-value">+$217,179</div>
@@ -522,7 +645,7 @@
                         <i class="fas fa-flask me-2"></i>무료 모의 테스트 신청
                     </a>
                 </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="col-lg-5 mt-5 mt-lg-0">
                     <div class="chart-container animate-fadeInUp" style="animation-delay: 0.4s;">
                         <canvas id="equityChart"></canvas>
                     </div>
