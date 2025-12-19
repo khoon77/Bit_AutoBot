@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bit_AutoTradingBot - 개인정보처리방침</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #f7931a;
+            --secondary-color: #4a90d9;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --success-color: #238636;
+            --danger-color: #da3633;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(13, 17, 23, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .privacy-container {
+            padding: 120px 0 60px 0;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .privacy-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-header h1 span {
+            background: linear-gradient(90deg, var(--primary-color), #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .privacy-content {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .privacy-section {
+            margin-bottom: 30px;
+        }
+
+        .privacy-section h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(247, 147, 26, 0.3);
+        }
+
+        .privacy-section p, .privacy-section li {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .privacy-section ul {
+            padding-left: 20px;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 217, 0.1);
+            border: 1px solid rgba(74, 144, 217, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .important-box {
+            background: rgba(35, 134, 54, 0.1);
+            border: 1px solid rgba(35, 134, 54, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .table-privacy {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table-privacy th, .table-privacy td {
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+
+        .table-privacy th {
+            background: rgba(247, 147, 26, 0.2);
+            color: var(--primary-color);
+        }
+
+        .table-privacy td {
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: #0a0e14;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-bitcoin me-2"></i>Bit_ATB
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">홈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#performance">성과</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#pricing">요금</a></li>
+                    <li class="nav-item"><a class="nav-link" href="terms.html">이용약관</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="privacy.html">개인정보처리방침</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Content -->
+    <div class="privacy-container">
+        <div class="container">
+            <div class="privacy-header">
+                <h1><i class="fas fa-shield-alt me-3"></i><span>Bit_ATB</span> 개인정보처리방침</h1>
+                <p class="text-secondary">Version 1.0 | 시행일: 2025년 1월</p>
+            </div>
+
+            <div class="privacy-content">
+                <!-- 제1조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-bullseye me-2"></i>제1조 (목적)</h3>
+                    <p>Bit_ATB(이하 "회사")는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고
+                    이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p>
+                </div>
+
+                <!-- 제2조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-database me-2"></i>제2조 (수집하는 개인정보 항목)</h3>
+                    <p>회사는 서비스 제공을 위해 다음과 같은 개인정보를 수집합니다.</p>
+
+                    <table class="table-privacy">
+                        <thead>
+                            <tr>
+                                <th>수집 항목</th>
+                                <th>수집 목적</th>
+                                <th>보유 기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>이메일 주소</td>
+                                <td>서비스 안내, 고객 문의 응대</td>
+                                <td>회원 탈퇴 시까지</td>
+                            </tr>
+                            <tr>
+                                <td>텔레그램 Chat ID</td>
+                                <td>실시간 매매 알림 발송</td>
+                                <td>회원 탈퇴 시까지</td>
+                            </tr>
+                            <tr>
+                                <td>결제 정보 (입금자명)</td>
+                                <td>결제 확인 및 서비스 제공</td>
+                                <td>5년 (전자상거래법)</td>
+                            </tr>
+                            <tr>
+                                <td>이용약관 동의 기록</td>
+                                <td>법적 분쟁 대비</td>
+                                <td>3년</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="important-box">
+                        <h4><i class="fas fa-check-circle me-2 text-success"></i>API 키 관련 중요 안내</h4>
+                        <ul>
+                            <li><strong class="text-success">회사는 사용자의 거래소 API 키를 수집하거나 서버에 저장하지 않습니다.</strong></li>
+                            <li>API 키는 사용자의 개인 PC에만 로컬 저장됩니다.</li>
+                            <li>사용자는 반드시 <strong>"출금 권한이 없는"</strong> API 키만 생성하여 사용해야 합니다.</li>
+                            <li>API 키 관리 소홀로 인한 피해는 회사가 책임지지 않습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 제3조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-cogs me-2"></i>제3조 (개인정보의 처리 목적)</h3>
+                    <p>회사는 다음의 목적으로 개인정보를 처리합니다:</p>
+                    <ul>
+                        <li><strong>서비스 제공:</strong> 자동매매 프로그램 제공, 텔레그램 알림 발송</li>
+                        <li><strong>회원 관리:</strong> 회원제 서비스 이용, 본인 확인, 부정 이용 방지</li>
+                        <li><strong>고객 지원:</strong> 문의사항 처리, 공지사항 전달</li>
+                        <li><strong>서비스 개선:</strong> 서비스 이용 통계 분석 (비식별 처리)</li>
+                    </ul>
+                </div>
+
+                <!-- 제4조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-clock me-2"></i>제4조 (개인정보의 보유 및 이용 기간)</h3>
+                    <ul>
+                        <li>회원 정보: 회원 탈퇴 시까지 (탈퇴 후 즉시 파기)</li>
+                        <li>결제 정보: 5년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
+                        <li>이용약관 동의 기록: 3년</li>
+                        <li>서비스 이용 기록: 1년</li>
+                    </ul>
+                </div>
+
+                <!-- 제5조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-share-alt me-2"></i>제5조 (개인정보의 제3자 제공)</h3>
+                    <p>회사는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다:</p>
+                    <ul>
+                        <li>이용자가 사전에 동의한 경우</li>
+                        <li>법령의 규정에 의하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+                    </ul>
+                </div>
+
+                <!-- 제6조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-trash-alt me-2"></i>제6조 (개인정보의 파기)</h3>
+                    <p>회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.</p>
+                    <ul>
+                        <li><strong>전자적 파일:</strong> 복구 불가능한 방법으로 영구 삭제</li>
+                        <li><strong>종이 문서:</strong> 분쇄기로 분쇄 또는 소각</li>
+                    </ul>
+                </div>
+
+                <!-- 제7조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-user-shield me-2"></i>제7조 (이용자의 권리)</h3>
+                    <p>이용자는 다음과 같은 권리를 행사할 수 있습니다:</p>
+                    <ul>
+                        <li>개인정보 열람 요구</li>
+                        <li>개인정보 정정·삭제 요구</li>
+                        <li>개인정보 처리정지 요구</li>
+                        <li>회원 탈퇴 및 개인정보 삭제 요청</li>
+                    </ul>
+                    <div class="info-box">
+                        <p><i class="fas fa-envelope me-2 text-info"></i>권리 행사 방법: <a href="mailto:bitautobot.help@gmail.com" class="text-warning">bitautobot.help@gmail.com</a>으로 요청</p>
+                        <p class="mb-0">요청 처리 기간: 접수일로부터 10일 이내</p>
+                    </div>
+                </div>
+
+                <!-- 제8조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-lock me-2"></i>제8조 (개인정보의 안전성 확보 조치)</h3>
+                    <p>회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다:</p>
+                    <ul>
+                        <li><strong>관리적 조치:</strong> 개인정보 취급 직원 최소화, 정기 교육</li>
+                        <li><strong>기술적 조치:</strong> 개인정보 암호화, 접근 권한 관리, 보안 프로그램 설치</li>
+                        <li><strong>물리적 조치:</strong> 전산실 접근 통제</li>
+                    </ul>
+                </div>
+
+                <!-- 제9조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-cookie me-2"></i>제9조 (쿠키 및 자동 수집 장치)</h3>
+                    <p>회사는 웹사이트에서 쿠키를 사용할 수 있으며, 이용자는 브라우저 설정을 통해 쿠키 저장을 거부할 수 있습니다.</p>
+                    <ul>
+                        <li>쿠키 사용 목적: 방문 기록 분석, 서비스 개선</li>
+                        <li>쿠키 거부 방법: 브라우저 설정에서 쿠키 차단</li>
+                    </ul>
+                </div>
+
+                <!-- 제10조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-user-tie me-2"></i>제10조 (개인정보 보호책임자)</h3>
+                    <table class="table-privacy">
+                        <tbody>
+                            <tr>
+                                <td><strong>담당 부서</strong></td>
+                                <td>고객지원팀</td>
+                            </tr>
+                            <tr>
+                                <td><strong>이메일</strong></td>
+                                <td><a href="mailto:bitautobot.help@gmail.com" class="text-warning">bitautobot.help@gmail.com</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 제11조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-balance-scale me-2"></i>제11조 (권익침해 구제방법)</h3>
+                    <p>개인정보 침해에 대한 신고나 상담이 필요하신 경우 아래 기관에 문의하실 수 있습니다:</p>
+                    <ul>
+                        <li>개인정보침해신고센터 (privacy.kisa.or.kr / 국번없이 118)</li>
+                        <li>대검찰청 사이버수사과 (www.spo.go.kr / 02-3480-3573)</li>
+                        <li>경찰청 사이버안전국 (cyberbureau.police.go.kr / 국번없이 182)</li>
+                    </ul>
+                </div>
+
+                <!-- 제12조 -->
+                <div class="privacy-section">
+                    <h3><i class="fas fa-edit me-2"></i>제12조 (개인정보처리방침 변경)</h3>
+                    <p>이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우에는
+                    변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+                    <div class="info-box">
+                        <p class="mb-0"><strong>공고일:</strong> 2025년 1월 1일 | <strong>시행일:</strong> 2025년 1월 1일</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="text-secondary mb-2">
+                <i class="fab fa-bitcoin me-2 text-warning"></i>Bit_ATB
+            </p>
+            <small class="text-secondary">
+                &copy; 2024-2025 Bit_ATB. All rights reserved.<br>
+                <a href="index.html" class="text-warning">홈으로 돌아가기</a> |
+                <a href="terms.html" class="text-warning">이용약관</a> |
+                <a href="mailto:bitautobot.help@gmail.com" class="text-warning">문의하기</a>
+            </small>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
