@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bit_AutoTradingBot - AI 기반 비트코인 100% 완전자동 매매 시스템</title>
-    <meta name="description" content="5년간 백테스트로 검증된 ATR 돌파 전략. 전략 A, B로 구성. 100% 자동으로 진입, 익절, 손절. 2026년 실전 검증 예정.">
+    <title>Bit_AutoTradingBot - 비트코인 자동 주문 실행 시스템</title>
+    <meta name="description" content="5년간 과거 데이터 시뮬레이션 테스트된 ATR 돌파 전략 기반 자동 주문 실행 도구. 투자 조언이 아닌 자동화 도구입니다. 과거 수익률이 미래 수익을 보장하지 않습니다.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -539,23 +539,34 @@
         </div>
     </nav>
 
+    <!-- 투자 경고 배너 (상단 고정) -->
+    <div class="alert alert-danger text-center mb-0" style="background: linear-gradient(90deg, #8B0000, #B22222); border: none; border-radius: 0; padding: 10px 15px; margin-top: 56px; position: relative; z-index: 1000;">
+        <small style="color: #fff;">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <strong>투자 위험 고지:</strong> 본 서비스는 자동 주문 실행 도구이며, 투자 조언이 아닙니다.
+            과거 시뮬레이션 결과가 미래 수익을 보장하지 않습니다.
+            <strong>원금 손실 위험이 있습니다.</strong>
+            <a href="#disclaimer" class="text-warning ms-2" style="text-decoration: underline;">자세히 보기</a>
+        </small>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="margin-top: 0;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 hero-content">
                     <div class="badge-new animate-fadeInUp">
-                        <i class="fas fa-rocket me-2"></i>100% 완전자동 매매 출시
+                        <i class="fas fa-rocket me-2"></i>자동 주문 실행 시스템 출시
                     </div>
                     <h1 class="animate-fadeInUp" style="animation-delay: 0.1s;">
-                        <span>5년간 백테스트로 검증된</span><br>
-                        비트코인 자동매매<br>
-                        시스템
+                        <span>5년간 과거 데이터 시뮬레이션</span><br>
+                        비트코인 자동 주문<br>
+                        실행 도구
                     </h1>
                     <p class="lead text-secondary mb-4 animate-fadeInUp" style="animation-delay: 0.2s;">
-                        프로그램만 실행하면 끝!<br>
-                        진입, 익절, 손절까지 <strong class="text-warning">100% 완전 자동</strong><br>
-                        감정 없이 24시간 매매합니다.
+                        설정된 조건에 따라 자동으로 주문 실행<br>
+                        진입, 익절, 손절 주문을 <strong class="text-warning">자동화</strong><br>
+                        <small class="text-danger">※ 수익을 보장하지 않으며, 원금 손실 가능</small>
                     </p>
 
                     <!-- 성과 검증 섹션 추가 -->
@@ -632,20 +643,20 @@
                     <div class="hero-stats animate-fadeInUp" style="animation-delay: 0.4s;">
                         <div class="stat-item">
                             <div class="stat-value">+$217,179</div>
-                            <div class="stat-label">23개월 총 순수익 <span class="badge bg-info" style="font-size: 0.6rem;">백테스트</span></div>
-                            <small class="small-note">2024.1~2025.11, 전략 A+B 합산(각 1BTC 기준)</small>
+                            <div class="stat-label">시뮬레이션 결과 <span class="badge bg-danger" style="font-size: 0.6rem;">백테스트</span></div>
+                            <small class="small-note text-danger">※ 실제 수익 아님, 과거 시뮬레이션 결과</small>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">646회</div>
-                            <div class="stat-label">검증된 거래 <span class="badge bg-info" style="font-size: 0.6rem;">백테스트</span></div>
+                            <div class="stat-label">테스트 거래 <span class="badge bg-danger" style="font-size: 0.6rem;">백테스트</span></div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">45%</div>
-                            <div class="stat-label">평균 승률</div>
+                            <div class="stat-label">시뮬레이션 승률</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">1:2</div>
-                            <div class="stat-label">손익비</div>
+                            <div class="stat-label">손익비 설정</div>
                         </div>
                     </div>
                     <a href="#contact" class="btn btn-primary-custom mt-4 animate-fadeInUp pulse" style="animation-delay: 0.6s;">
@@ -673,11 +684,11 @@
                         <div class="feature-icon" style="background: rgba(35, 134, 54, 0.2);">
                             <i class="fas fa-robot text-success"></i>
                         </div>
-                        <h4 class="mb-3">100% 완전 자동</h4>
+                        <h4 class="mb-3">자동 주문 실행</h4>
                         <p class="text-secondary mb-0">
-                            프로그램만 실행하면 OK!<br>
-                            <strong>진입, 익절, 손절</strong> 모든 매매를 자동으로 진행합니다.
-                            더 이상 차트 앞에 앉아있을 필요 없습니다.
+                            설정에 따라 자동으로 주문 실행<br>
+                            <strong>진입, 익절, 손절</strong> 주문을 자동화합니다.
+                            <small class="text-danger d-block mt-1">※ 수익 보장 아님</small>
                         </p>
                     </div>
                 </div>
@@ -725,11 +736,11 @@
                         <div class="feature-icon" style="background: rgba(231, 76, 60, 0.2);">
                             <i class="fas fa-chart-line" style="color: #e74c3c;"></i>
                         </div>
-                        <h4 class="mb-3">5년간 백테스트 검증</h4>
+                        <h4 class="mb-3">5년간 과거 데이터 테스트</h4>
                         <p class="text-secondary mb-0">
-                            <strong>2021년~2025년</strong> 과거 데이터 분석!<br>
-                            212,475개 캔들, 1,962회 거래로
-                            검증된 수익 모델입니다.
+                            <strong>2021년~2025년</strong> 과거 데이터 시뮬레이션<br>
+                            212,475개 캔들, 1,962회 거래 테스트
+                            <small class="text-danger d-block mt-1">※ 과거 결과가 미래 수익 보장 아님</small>
                         </p>
                     </div>
                 </div>
@@ -825,7 +836,8 @@
                             <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(74,144,217,0.1);">
                                     <h4 class="text-info mb-1">+$94,399</h4>
-                                    <small class="text-secondary">23개월 순수익</small>
+                                    <small class="text-secondary">시뮬레이션 결과</small>
+                                    <small class="text-danger d-block" style="font-size: 0.65rem;">※백테스트</small>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6">
@@ -894,13 +906,14 @@
                             <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(247,147,26,0.1);">
                                     <h4 class="text-warning mb-1">+$122,780</h4>
-                                    <small class="text-secondary">23개월 순수익</small>
+                                    <small class="text-secondary">23개월 시뮬레이션 결과</small>
+                                    <div><small class="text-muted" style="font-size: 0.7rem;">※백테스트 기준</small></div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6">
                                 <div class="p-3 rounded text-center" style="background: rgba(247,147,26,0.1);">
                                     <h4 class="text-warning mb-1">43.68%</h4>
-                                    <small class="text-secondary">승률</small>
+                                    <small class="text-secondary">과거 승률</small>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6">
@@ -1382,20 +1395,45 @@
     </section>
 
     <!-- Legal Notice Section -->
-    <section class="py-4" style="background: rgba(218, 54, 51, 0.1); border-top: 1px solid rgba(218, 54, 51, 0.3); border-bottom: 1px solid rgba(218, 54, 51, 0.3);">
+    <section id="disclaimer" class="py-5" style="background: rgba(218, 54, 51, 0.15); border-top: 2px solid rgba(218, 54, 51, 0.5); border-bottom: 2px solid rgba(218, 54, 51, 0.5);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="text-warning mb-3 text-center"><i class="fas fa-exclamation-triangle me-2"></i>투자 경고</h5>
-                    <div class="text-secondary" style="font-size: 0.9rem; line-height: 1.8;">
-                        <ul class="mb-0">
-                            <li><strong>본 프로그램은 자동 주문 실행 도구이며, 투자 조언을 제공하지 않습니다.</strong></li>
-                            <li>모든 투자 결정과 손실에 대한 책임은 사용자에게 있습니다.</li>
-                            <li>표시된 수익은 과거 백테스트(시뮬레이션) 결과이며, 실제 수익과 다를 수 있습니다.</li>
-                            <li><strong class="text-danger">금융위원회 등록 투자자문업자가 아닙니다.</strong></li>
-                            <li>암호화폐 투자는 원금 손실 위험이 있으며, 레버리지 사용 시 손실이 확대될 수 있습니다.</li>
-                            <li>거래소 서버 장애, API 오류, 네트워크 불안정 시 주문 실행이 실패할 수 있습니다.</li>
-                        </ul>
+                    <h4 class="text-danger mb-4 text-center"><i class="fas fa-exclamation-triangle me-2"></i>중요 고지사항 (필독)</h4>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="p-3 rounded" style="background: rgba(0,0,0,0.3);">
+                                <h6 class="text-warning mb-3"><i class="fas fa-gavel me-2"></i>서비스 성격</h6>
+                                <ul class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.8;">
+                                    <li><strong class="text-white">본 서비스는 자동 주문 실행 도구입니다.</strong></li>
+                                    <li>투자 조언, 투자 자문, 투자 일임 서비스가 <strong class="text-danger">아닙니다.</strong></li>
+                                    <li><strong class="text-danger">금융위원회 등록 투자자문업자가 아닙니다.</strong></li>
+                                    <li>모든 투자 결정과 손실에 대한 책임은 <strong class="text-white">사용자 본인</strong>에게 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded" style="background: rgba(0,0,0,0.3);">
+                                <h6 class="text-warning mb-3"><i class="fas fa-chart-line me-2"></i>수익 관련</h6>
+                                <ul class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.8;">
+                                    <li>표시된 수익은 <strong class="text-white">과거 시뮬레이션(백테스트) 결과</strong>입니다.</li>
+                                    <li><strong class="text-danger">과거 수익률이 미래 수익을 보장하지 않습니다.</strong></li>
+                                    <li>실제 거래 시 슬리피지, 수수료 등으로 결과가 다를 수 있습니다.</li>
+                                    <li>암호화폐 투자는 <strong class="text-danger">원금 전액 손실</strong> 위험이 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="p-3 rounded" style="background: rgba(218, 54, 51, 0.2); border: 1px solid rgba(218, 54, 51, 0.5);">
+                                <h6 class="text-danger mb-2"><i class="fas fa-skull-crossbones me-2"></i>레버리지 위험</h6>
+                                <p class="text-secondary mb-0" style="font-size: 0.9rem;">
+                                    레버리지 사용 시 손실이 <strong class="text-danger">급격히 확대</strong>될 수 있습니다.
+                                    5배 이상 레버리지 사용 시 <strong class="text-danger">청산(원금 전액 손실)</strong> 위험이 매우 높습니다.
+                                    거래소 서버 장애, API 오류, 네트워크 불안정 시 주문 실행이 실패하거나 지연될 수 있습니다.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1409,8 +1447,8 @@
                 <div class="col-lg-12 text-center">
                     <h5 class="text-warning mb-3"><i class="fab fa-bitcoin me-2"></i>Bit_ATB</h5>
                     <p class="text-secondary">
-                        AI 기반 비트코인 100% 완전자동 매매 시스템<br>
-                        5년간 백테스트로 검증된 알고리즘 트레이딩
+                        비트코인 자동 주문 실행 도구<br>
+                        <small class="text-danger">투자 조언이 아닌 자동화 도구입니다. 원금 손실 위험이 있습니다.</small>
                     </p>
                     <p class="text-muted small">
                         <i class="fas fa-envelope me-2"></i>문의: bitautobot.help@gmail.com
@@ -1481,7 +1519,7 @@
                     },
                     title: {
                         display: true,
-                        text: '23개월 누적 수익 곡선 (2024.1~2025.11, 전략 A+B 각 1BTC)',
+                        text: '[백테스트] 23개월 시뮬레이션 결과 (실제 수익 아님)',
                         color: '#8b949e',
                         font: {
                             size: 14
