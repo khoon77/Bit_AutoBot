@@ -624,7 +624,23 @@
                             </table>
                         </div>
                         <small class="text-secondary d-block mt-2">* 거래규모: 전략별 1BTC 기준</small>
-                        <div class="alert mt-3 mb-2" style="background: rgba(74, 144, 217, 0.1); border: 1px solid rgba(74, 144, 217, 0.3); padding: 12px; border-radius: 8px;">
+
+                        <!-- 백테스트 가정 조건 박스 -->
+                        <div class="alert mt-3 mb-2" style="background: rgba(128, 128, 128, 0.15); border: 1px solid rgba(128, 128, 128, 0.4); padding: 12px; border-radius: 8px;">
+                            <small>
+                                <i class="fas fa-cog text-secondary me-1"></i>
+                                <strong class="text-white">백테스트 가정 조건:</strong><br>
+                                <span class="text-secondary">
+                                    • 데이터 출처: Binance BTCUSDT 무기한 선물<br>
+                                    • 수수료: 왕복 0.04% (Maker 0.02% 기준)<br>
+                                    • 슬리피지: <strong class="text-warning">미반영</strong> (실거래 시 추가 비용 발생 가능)<br>
+                                    • 펀딩비: 미반영<br>
+                                    • 포지션 사이즈: 전략별 1 BTC 고정
+                                </span>
+                            </small>
+                        </div>
+
+                        <div class="alert mt-2 mb-2" style="background: rgba(74, 144, 217, 0.1); border: 1px solid rgba(74, 144, 217, 0.3); padding: 12px; border-radius: 8px;">
                             <small>
                                 <i class="fas fa-info-circle text-info me-1"></i>
                                 <strong>승률은 비슷하지만 비트코인 가격대가 다르므로 수익 금액이 다릅니다.</strong><br>
@@ -964,7 +980,7 @@
     <section id="video" class="video-section section-padding">
         <div class="container">
             <h2 class="section-title">실전 매매 영상</h2>
-            <p class="section-subtitle">실제 자동매매 작동 모습을 확인하세요</p>
+            <p class="section-subtitle">실제 자동 주문 실행 작동 모습을 확인하세요</p>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1232,7 +1248,7 @@
                         </div>
                         <h5 class="mb-3">프로그램 사용법</h5>
                         <p class="text-secondary mb-3">
-                            완전 자동매매 프로그램<br>
+                            자동 주문 실행 프로그램<br>
                             설치 및 실행 방법을 안내합니다.
                         </p>
                         <span class="badge bg-success">PDF 가이드 제공</span>
@@ -1276,7 +1292,7 @@
                             <h4 class="text-white">무료 모의 테스트 신청</h4>
                         </div>
                         <p class="text-light mb-4">
-                            신청 완료 시 <strong class="text-warning">모의 자동매매 프로그램</strong>과
+                            신청 완료 시 <strong class="text-warning">모의 주문 실행 프로그램</strong>과
                             <strong class="text-warning">PDF 가이드</strong>가 이메일로 자동 발송됩니다.
                         </p>
                         <ul class="list-unstyled text-start mb-4 text-light" style="max-width: 400px; margin: 0 auto;">
@@ -1359,7 +1375,11 @@
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PDF 가이드 제공</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>개인 PC + <strong class="text-info">서버 로그 저장</strong></li>
                         </ul>
-                        <small class="text-light d-block mb-3">(서버 로그 30일 보관)</small>
+                        <small class="text-secondary d-block mb-2" style="font-size: 0.75rem;">
+                            (서버 로그 30일 보관)<br>
+                            ※ 로그 내용: 주문 시간, 방향, 가격, 수량<br>
+                            개인식별정보는 최소화하여 저장
+                        </small>
                         <button class="btn btn-outline-danger mt-auto" disabled>준비중</button>
                     </div>
                 </div>
@@ -1372,7 +1392,8 @@
                         <h6 class="text-warning mb-2"><i class="fas fa-info-circle me-2"></i>거래 규모 제한 및 선착순 안내</h6>
                         <small class="text-secondary">
                             • <strong>거래 규모 제한</strong>: 슬리피지 및 체결 지연 방지를 위해 플랜별 거래 규모를 제한합니다.<br>
-                            • <strong class="text-danger">선착순 1,000명으로 제한합니다.</strong> 기존 사용자 보호를 위해 추가 신청이 제한될 수 있습니다.
+                            • <strong class="text-danger">선착순 1,000명으로 제한합니다.</strong> 기존 사용자 보호를 위해 추가 신청이 제한될 수 있습니다.<br>
+                            • <strong class="text-warning">슬리피지 주의:</strong> 동시 이용자가 증가할수록 체결 가격이 악화될 수 있으며, 백테스트 대비 수익률이 낮아질 수 있습니다.
                         </small>
                     </div>
                 </div>
@@ -1381,13 +1402,18 @@
             <!-- 투자 위험 고지 및 이용 안내 -->
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-10">
-                    <div class="alert" style="background: rgba(218, 54, 51, 0.1); border: 1px solid rgba(218, 54, 51, 0.3); border-radius: 12px;">
-                        <h6 class="text-danger mb-2"><i class="fas fa-exclamation-circle me-2"></i>투자 위험 고지 및 이용 안내</h6>
-                        <small class="text-secondary">
-                            • 암호화폐 투자는 높은 위험을 수반하며, <strong>과거 수익률이 미래 수익을 보장하지 않습니다.</strong><br>
-                            • 본 서비스는 투자 조언이 아닌 자동매매 도구입니다. <strong class="text-warning">레버리지 사용 시 원금 손실 위험이 있습니다.</strong><br>
-                            • 이용 자격: 만 19세 이상 | 환불: 결제 후 7일 이내 | <a href="terms.html" class="text-warning">이용약관</a>
-                        </small>
+                    <div class="alert" style="background: rgba(218, 54, 51, 0.15); border: 2px solid rgba(218, 54, 51, 0.5); border-radius: 12px;">
+                        <h6 class="text-danger mb-3"><i class="fas fa-exclamation-triangle me-2"></i>고위험 투자 경고 (필독)</h6>
+                        <div class="text-secondary" style="font-size: 0.85rem; line-height: 1.8;">
+                            <p class="mb-2" style="background: rgba(218, 54, 51, 0.2); padding: 10px; border-radius: 6px;">
+                                <strong class="text-danger">⚠ 본 프로그램은 해외 파생상품(암호화폐 선물) 자동 주문 실행 도구입니다.<br>
+                                레버리지 거래로 인해 원금 전액 손실 가능성이 있습니다.</strong>
+                            </p>
+                            • 암호화폐 투자는 높은 위험을 수반하며, <strong class="text-white">과거 수익률이 미래 수익을 보장하지 않습니다.</strong><br>
+                            • 본 서비스는 <strong class="text-white">투자 조언이 아닌 자동 주문 실행 도구</strong>입니다.<br>
+                            • 레버리지 3배 초과 사용은 권장하지 않으며, <strong class="text-danger">손실 발생 시 모든 책임은 사용자에게 있습니다.</strong><br>
+                            • 이용 자격: 만 19세 이상 | 환불: 결제 후 7일 이내 (미사용 시) | <a href="terms.html" class="text-warning">이용약관</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1404,12 +1430,15 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="p-3 rounded" style="background: rgba(0,0,0,0.3);">
-                                <h6 class="text-warning mb-3"><i class="fas fa-gavel me-2"></i>서비스 성격</h6>
-                                <ul class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.8;">
-                                    <li><strong class="text-white">본 서비스는 자동 주문 실행 도구입니다.</strong></li>
-                                    <li>투자 조언, 투자 자문, 투자 일임 서비스가 <strong class="text-danger">아닙니다.</strong></li>
-                                    <li><strong class="text-danger">금융위원회 등록 투자자문업자가 아닙니다.</strong></li>
-                                    <li>모든 투자 결정과 손실에 대한 책임은 <strong class="text-white">사용자 본인</strong>에게 있습니다.</li>
+                                <h6 class="text-warning mb-3"><i class="fas fa-gavel me-2"></i>서비스 성격 및 법적 고지</h6>
+                                <ul class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.9;">
+                                    <li><strong class="text-white">본 서비스는 사용자가 설정한 조건에 따라 주문을 자동 실행하는 도구입니다.</strong></li>
+                                    <li><strong class="text-danger">본 서비스는 투자 조언, 투자 자문, 투자 일임 서비스가 아닙니다.</strong></li>
+                                    <li><strong class="text-danger">회사는 자본시장법상 투자자문업/투자일임업 등록 사업자가 아닙니다.</strong></li>
+                                    <li>회사는 회원의 투자목적, 재산상태, 위험선호를 개별적으로 파악하거나, 이에 맞춰 전략을 조정하지 않습니다.</li>
+                                    <li><strong class="text-white">동일 알고리즘을 동일 조건으로 모든 회원에게 제공하며, 개별 맞춤형 자문을 제공하지 않습니다.</strong></li>
+                                    <li>모든 투자 결정과 손실에 대한 책임은 <strong class="text-danger">전적으로 사용자 본인</strong>에게 있습니다.</li>
+                                    <li>사용자는 본 도구를 사용하기 전 <strong class="text-white">독립적인 투자 판단</strong>을 해야 합니다.</li>
                                 </ul>
                             </div>
                         </div>
